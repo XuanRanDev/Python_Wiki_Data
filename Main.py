@@ -13,5 +13,5 @@ def crawl_wiki_data():
     """
     heards = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36',
-
     }
+    url = 'https://baike.baidu.com/item/青春有你第二季'
