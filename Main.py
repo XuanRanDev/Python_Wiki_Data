@@ -33,5 +33,18 @@ def crawl_wiki_data():
         print(e)
 
 
+def parseTable(table_data):
+    """
+    解析Table
+    """
+
+    bs = BeautifulSoup(str(table_data),'lxml')
+    all_tr = bs.find_all('tr')
+
+    error_list = ['\'', '\"']
+
+
+
 if __name__ == '__main__':
-    print(crawl_wiki_data())
+    table_data = crawl_wiki_data()
+    table_tr = parseTable(table_data)
