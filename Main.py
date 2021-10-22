@@ -41,7 +41,30 @@ def parseTable(table_data):
     bs = BeautifulSoup(str(table_data),'lxml')
     all_tr = bs.find_all('tr')
 
-    error_list = ['\'', '\"']
+    stars = []
+
+    # 遍历所有tr标签
+    for tr in all_tr[1:]:
+        all_tds = tr.find_all('td')
+
+        star = {}
+
+        star['name'] = all_tds[0].text
+        star['link'] = "https://baike.baidu.com" + all_tds[0].find('a').get('href')
+        # 籍贯
+        star['zone'] = all_tds[1].text
+        # 星座
+        star['constellation'] = all_tds[2].text
+        # 身高
+        star['flower_world'] = all_tds[3].text
+        # 体重
+        star['company'] = all_tds[4].text
+        stars.append(star)
+
+    # json_data = json.loads(repr(stars).replace("\'", "\""))
+
+    with open('work/' + today + '.json', 'w', encoding='UTF-8') as f:
+        json.dump(repr(stars), f, ensure_ascii=False)
 
 
 
